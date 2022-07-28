@@ -1,2 +1,2 @@
-# teaching
+# Teaching
 My online teaching materals
