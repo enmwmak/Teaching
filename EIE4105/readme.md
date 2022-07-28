@@ -1,1 +1,1 @@
-# EIE4105 files
+# EIE4105 lab sessions
