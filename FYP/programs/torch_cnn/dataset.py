@@ -16,7 +16,8 @@ class SpeakerWavDataset(Dataset):
     def __init__(self, filelist=None, rootdir=None, n_mfcc=20, max_len=64000,
                  n_classes=4, spk_ids=np.arange(1,10), device='cpu'):
         emo_set = {'2' : ['ang','neu'],
-                   '4' : ['ang','hap','sad','neu']}
+                   '4' : ['ang','hap','sad','neu'],
+                   '5' : ['ang','hap','sad','neu', 'exc']}
         self.filelist = filelist
         self.spk_ids = spk_ids
         self.device = device
@@ -70,7 +71,8 @@ class SessionWavDataset(Dataset):
     def __init__(self, filelist=None, rootdir=None, n_mfcc=20, max_len=64000,
                  n_classes=4, sess_ids=np.arange(1,5), device='cpu'):
         emo_set = {'2' : ['ang','neu'],
-                   '4' : ['ang','hap','sad','neu']}
+                   '4' : ['ang','hap','sad','neu'],
+                   '5' : ['ang','hap','sad','neu', 'exc']}
         self.filelist = filelist
         self.sess_ids = sess_ids
         self.device = device
@@ -129,7 +131,8 @@ class SpeakerMfcDataset(Dataset):
     def __init__(self, filelist=None, rootdir=None, n_mfcc=20, max_len=64000,
                  n_classes=4, spk_ids=np.arange(1,10), device='cpu'):
         emo_set = {'2' : ['ang','neu'],
-                   '4' : ['ang','hap','sad','neu']}
+                   '4' : ['ang','hap','sad','neu'],
+                   '5' : ['ang','hap','sad','neu', 'exc']}
         self.filelist = filelist
         self.spk_ids = spk_ids
         self.device = device
@@ -179,7 +182,8 @@ class SessionMfcDataset(Dataset):
     def __init__(self, filelist=None, rootdir=None, n_mfcc=20, max_len=64000,
                  n_classes=4, sess_ids=np.arange(1,5), device='cpu'):
         emo_set = {'2' : ['ang','neu'],
-                   '4' : ['ang','hap','sad','neu']}
+                   '4' : ['ang','hap','sad','neu'],
+                   '5' : ['ang','hap','sad','neu', 'exc']}
         self.filelist = filelist
         self.sess_ids = sess_ids
         self.device = device

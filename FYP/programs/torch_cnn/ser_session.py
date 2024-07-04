@@ -28,7 +28,7 @@ from model import CNNModel
 from pathlib import Path
 import argparse
 from performance import get_accuracy
-from dataset import SessionWavDataset
+from dataset import SessionMfcDataset
 
 def get_default_device():
     if torch.backends.mps.is_available():
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     parser.add_argument('--model_file', default='models/emotion_cnn_asp.pth')
     parser.add_argument('--n_classes', type=int, default=4)
     parser.add_argument('--rootdir', default='../../IEMOCAP_full_release')
-    parser.add_argument('--filelist', default='../../labels/emo_labels_cat.txt')
+    parser.add_argument('--filelist', default='../../labels/emo_labels_cat_exc-as-hap.txt')
     parser.add_argument('--n_mfcc', type=int, default=20)
     parser.add_argument('--n_epochs', type=int, default=10)
 
@@ -115,10 +115,10 @@ if __name__ == "__main__":
         tst_sess = np.arange(k, k+1)
 
         # For each fold, use 4 sessions for training and the remaining session for test
-        train_set = SessionWavDataset(filelist=args.filelist, rootdir=args.rootdir, n_mfcc=args.n_mfcc,
+        train_set = SessionMfcDataset(filelist=args.filelist, rootdir=args.rootdir, n_mfcc=args.n_mfcc,
                                     n_classes=n_classes, max_len=max_len, sess_ids=trn_sess,
                                     device=device)
-        test_set = SessionWavDataset(filelist=args.filelist, rootdir=args.rootdir, n_mfcc=args.n_mfcc,
+        test_set = SessionMfcDataset(filelist=args.filelist, rootdir=args.rootdir, n_mfcc=args.n_mfcc,
                                     n_classes=n_classes, max_len=max_len, sess_ids=tst_sess,
                                     device=device)
 
