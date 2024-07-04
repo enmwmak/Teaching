@@ -1,0 +1,1 @@
+## This folder contains example Python programs for speech emotion recognition (SER) using the IEMOCAP corpus. The programs perform leave-one-session-out (ser_session.py) and leave-one-speaker-out (ser_speaker.py) cross-validation.
