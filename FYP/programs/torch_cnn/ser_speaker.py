@@ -13,10 +13,6 @@ Example usage:
 If using WaveMfcDataset in dataset.py, you need to run wav2mfc.py to conver the .wav files
 to .npy files first
     
-Performance:
-    --pool_method asp --n_mfcc 20 --n_epochs 10
-    LOSOCV Weighted Accuracy (WA) = 51.93%
-    LOSOCV Unweighted Accuracy (UA) = 40.29%    
 """
 
 from torch.utils.data import DataLoader

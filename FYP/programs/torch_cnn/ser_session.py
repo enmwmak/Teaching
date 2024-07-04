@@ -16,8 +16,8 @@ to .npy files first
     
 Performance:
     --pool_method sp --n_mfcc 20 --n_epochs 10
-    LOSOCV Weighted Accuracy (WA) = 52.34%
-    LOSOCV Unweighted Accuracy (UA) = 40.99%
+    LOSOCV Weighted Accuracy (WA) = 42.21%
+    LOSOCV Unweighted Accuracy (UA) = 37.76%
 """
 
 from torch.utils.data import DataLoader
