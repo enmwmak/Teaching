@@ -1,4 +1,4 @@
-This folder contains examples of Python programs for speech depression detection (SDD) on the DAIC-WOZ corpus. 
+This folder contains examples of Python programs (called by run.sh) for speech depression detection (SDD) on the DAIC-WOZ corpus. 
 The program "sdd.py" performs leave-one-speaker-out cross-validation on the training set and evaluates the CNN model's performance on
 the test set of the corpus. The programs use a small 1D-CNN with statistics pooling or attentive statistics pooling to minimize computation. 
 Therefore, they only serve as examples and a coding framework for students to learn CNN and cross-validation. 
