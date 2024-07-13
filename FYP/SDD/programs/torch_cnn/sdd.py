@@ -21,7 +21,8 @@ import argparse
 from dataset import FeatureDataset
 import pandas as pd
 import copy
-from performance import get_f1_score, comp_loso_cv_f1, get_dec_count
+from performance import get_f1_score, comp_loso_cv_f1
+from sampler import BalancedBatchSampler
 
 def get_default_device():
     if torch.backends.mps.is_available():
@@ -88,8 +89,9 @@ if __name__ == "__main__":
     parser.add_argument('--n_epochs', type=int, default=10)
     parser.add_argument('--wtype', choices=['segs', 'sess'], default='segs')
     parser.add_argument('--pos_class', choices=['dep', 'nor'], default='dep')
-    parser.add_argument('--batch_size', type=int, default=32)
+    parser.add_argument('--batch_size', type=int, default=20)
     parser.add_argument('--ftype', choices=['mfc', 'cov', 'mel'], default='mfc')
+    parser.add_argument('--batch_sampler', choices=['none', 'balance'], default='none')
 
     args = parser.parse_args()
     n_classes = int(args.n_classes)
@@ -133,7 +135,11 @@ if __name__ == "__main__":
         n_trns = len(trn_set.df.index)
         n_vals = len(val_set.df.index)
         n_tsts = len(tst_set.df.index)
-        trn_dl = DataLoader(trn_set, batch_size=args.batch_size, shuffle=True) 
+
+        if args.batch_sampler == 'balance':
+            trn_dl = DataLoader(trn_set, batch_size=args.batch_size, shuffle=False, sampler=BalancedBatchSampler(trn_set))
+        else:
+            trn_dl = DataLoader(trn_set, batch_size=args.batch_size, shuffle=True)                 
         val_dl = DataLoader(val_set, batch_size=n_vals, shuffle=False)
         tst_dl = DataLoader(tst_set, batch_size=n_tsts, shuffle=False)
         
@@ -153,7 +159,7 @@ if __name__ == "__main__":
 
         # Train model and evaluate it on the validation set. The class weights are set to
         # address the class imbalance problem
-        cweights = torch.tensor([0.3, 0.7]).to(device) 
+        cweights = torch.tensor([0.5, 0.5]).to(device) 
         fit(model, trn_dl, val_dl, n_epochs=args.n_epochs, lr=0.0001, class_weights=cweights)
 
         # Accumulate the decisions on the validation split

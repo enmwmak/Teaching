@@ -30,6 +30,7 @@ class FeatureDataset(Dataset):
 
         for i, l in enumerate(sdd_set[str(n_classes)]):
             self.labels[l] = i
+        pass
 
     def __len__(self):
         return len(self.df)
