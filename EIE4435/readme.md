@@ -6,7 +6,7 @@
 3. Enable students to understand the spectral subtraction algorithm and the artifacts it produces, especially on speech signals with low SNR.
 4. Allow students to investigate the effect of changing the over-subtraction factor and noise floor on the denoised speech.
 
-## Procedures for this lab exercise
+## Getting Start
 1. Download the lab materials from https://github.com/enmwmak/Teaching/tree/main/EIE4435 using https://download-directory.github.io/. Depending on the operating system of your local computer, this step either creates a folder "enmwmak Teaching main EIE4435" or a ZIP file named "enmwmak Teaching main EIE4435.zip" under your Download folder.
 1. Create a folder "EIE4435/Lab" on your local computer or your Google Drive.
 2. Copy the folders "AudioFiles" and "Programs" from the downloaded folder to your "EIE4435/Lab" folder. 
