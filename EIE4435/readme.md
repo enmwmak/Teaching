@@ -1,7 +1,9 @@
+# EIE4435 Lab Exercise on Digital Audio and Speech Enhancement
+
 ## Objectives
 1. Enable students to understand the dithering process and how it helps alleviate the detrimental effect of quantization error, especially on low-amplitude signals.
-2. Allow students to appreciate the effect of quantization error and dithering through changing the bit depth and the amount of noise to be added to the signal.
-3. Enable students to understand the spectral subtraction algorithm and the artifacts it produces, especially on low SNR speech signals.
+2. Facilitate students to understand the effect of quantization error and dithering through changing the bit depth and varying the additive noise.
+3. Enable students to understand the spectral subtraction algorithm and the artifacts it produces, especially on speech signals with low SNR.
 4. Allow students to investigate the effect of changing the over-subtraction factor and noise floor on the denoised speech.
 
 ## Procedures for this lab exercise
